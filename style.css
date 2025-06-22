@@ -1,0 +1,105 @@
+/* ------------------------------
+   Modelo de Cajas: Aplicado a tarjetas y secciones
+--------------------------------*/
+
+.card, section {
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+/* ------------------------------
+   Transición y transformación en botones
+--------------------------------*/
+
+.btn-primary {
+  background-color: #ff5733;
+  border-color: #ff5733;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #c70039;
+  transform: scale(1.05) rotate(-1deg);
+  
+}
+
+/* ------------------------------
+   Animación: efecto fadeIn al cargar
+--------------------------------*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica la animación a tarjetas y formularios */
+.card, form {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ------------------------------
+   Efectos para el header
+--------------------------------*/
+
+header {
+  background-color: #343a40;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 5px solid #ff5733;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------
+   Footer estilizado
+--------------------------------*/
+
+footer {
+  background-color: #f8f9fa;
+  border-top: 2px solid #ddd;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+/* ------------------------------
+   Media Queries para dispositivos pequeños
+--------------------------------*/
+
+@media screen and (max-width: 768px) {
+  header, footer {
+    font-size: 90%;
+    padding: 15px;
+  }
+
+  .btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+  body {
+    background-color: #fffaf0;
+    
+  }
+  
+}
