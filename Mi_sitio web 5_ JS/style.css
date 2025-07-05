@@ -1,0 +1,159 @@
+#galeria img {
+    width: 150px;
+    margin: 10px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+
+#galeria img.seleccionada {
+    border: 3px solid red;
+    box-shadow: 0 0 10px red;
+}
+/* ─── Variables de color ─────────────────────────────────────────────── */
+:root {
+  --bg-grad-start: #f8f9fa;
+  --bg-grad-end:   #e9ecef;
+  --accent:        #527bb9;      /* Azul Bootstrap */
+  --accent-light:  #6597ff;
+  --text-dark:     #212529;
+  --text-light:    #bb8104e1;
+  --radius:        0.75rem;
+  --shadow-s:      0 1px 4px rgba(0, 0, 0, .08);
+  --shadow-m:      0 4px 20px rgba(0, 0, 0, .10);
+}
+
+/* ─── Reset ligero ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  background: linear-gradient(to bottom, var(--bg-grad-start), var(--bg-grad-end));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Tipografía ─────────────────────────────────────────────────────── */
+h1, h2, h3 {
+  font-weight: 600;
+  margin: 0 0 .5em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  text-align: center;
+  color: var(--accent);
+}
+
+/* ─── Contenedor principal ──────────────────────────────────────────── */
+body > * {
+  width: min(90%, 900px);
+  margin-inline: auto;
+}
+
+/* ─── Botones genéricos ─────────────────────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  padding: .6rem 1.2rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background .2s, transform .15s;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: var(--shadow-s);
+}
+button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+button:active {
+  transform: translateY(0);
+}
+
+/* ─── Menú de navegación ────────────────────────────────────────────── */
+#menu {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+#menu .item {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+}
+#menu .item:hover,
+#menu .item.activo {
+  color: var(--accent);
+}
+#menu .item.activo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+/* ─── Campos de texto & inputs ──────────────────────────────────────── */
+input[type="url"] {
+  width: 100%;
+  max-width: 400px;
+  padding: .55rem 1rem;
+  margin: .5rem 0 1rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: var(--radius);
+  transition: border-color .2s, box-shadow .2s;
+}
+input[type="url"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, .25);
+}
+
+/* ─── Galería de imágenes ───────────────────────────────────────────── */
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+#galeria img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-s);
+  transition: transform .25s, box-shadow .25s;
+}
+#galeria img:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: var(--shadow-m);
+}
+
+/* Borde de selección (se añade vía JS) */
+#galeria img.border-danger {
+  box-shadow: 0 0 0 4px #8a434b, var(--shadow-s);
+  transform: scale(1.05);
+}
+
+/* ─── Utilidades ────────────────────────────────────────────────────── */
+.mt-2 { margin-top: .5rem  !important; }
+.mt-3 { margin-top: 1rem  !important; }
+.mt-4 { margin-top: 1.5rem!important; }
